@@ -1,6 +1,7 @@
-const baseUrl = "http://127.0.0.1:3001/api";
+const baseUrl = "http://localhost:3001/api";
 const execApiCall = async (endpoint, body, method) => {
   try {
+    console.log({body})
     const rawResponse = await fetch(`${baseUrl}${endpoint}`, {
       body: JSON.stringify(body),
       method,
@@ -14,5 +15,7 @@ const execApiCall = async (endpoint, body, method) => {
       return null;
     }
     return response;
-  } catch (error) {}
+  } catch (error) {
+    console.log({ error });
+  }
 };

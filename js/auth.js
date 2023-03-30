@@ -12,13 +12,13 @@ if (window.location.pathname == "/pages/sign_up.html") {
   });
   nameInput = document.querySelector("#name");
   surnameInput = document.querySelector("#surname");
-  nameInput.value = "angel";
-  surnameInput.value = "retana";
+  // nameInput.value = "angel";
+  // surnameInput.value = "retana";
 }
 emailInput = document.querySelector("#email");
 passwordInput = document.querySelector("#password");
-emailInput.value = "angel@gmail.com";
-passwordInput.value = "qwerty123";
+// emailInput.value = "angel@gmail.com";
+// passwordInput.value = "qwerty123";
 
 const login = async () => {
   const resp = await execApiCall(
@@ -35,6 +35,12 @@ const login = async () => {
 };
 
 const signup = async () => {
+  console.log({
+    name: nameInput.value,
+    surname: surnameInput.value,
+    email: emailInput.value,
+    password: passwordInput.value,
+  });
   const resp = await execApiCall(
     "/auth/sign_up",
     {
@@ -46,7 +52,7 @@ const signup = async () => {
     "POST"
   );
   window.localStorage.setItem("token", resp.data.token);
-  // if (resp != null) {
-  //   window.location.href = "/pages/home.html";
-  // }
+  if (resp != null) {
+    window.location.href = "/pages/home.html";
+  }
 };
