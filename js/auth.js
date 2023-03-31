@@ -30,7 +30,8 @@ const login = async () => {
     "POST"
   );
   if (resp != null) {
-    window.location.href = "/pages/home.html";
+    window.localStorage.setItem("token", resp.data.token);
+    window.location.href = "/pages/landing_page.html";
   }
 };
 
@@ -51,8 +52,8 @@ const signup = async () => {
     },
     "POST"
   );
-  window.localStorage.setItem("token", resp.data.token);
   if (resp != null) {
+    window.localStorage.setItem("token", resp.data.token);
     window.location.href = "/pages/home.html";
   }
 };
