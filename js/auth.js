@@ -36,12 +36,6 @@ const login = async () => {
 };
 
 const signup = async () => {
-  console.log({
-    name: nameInput.value,
-    surname: surnameInput.value,
-    email: emailInput.value,
-    password: passwordInput.value,
-  });
   const resp = await execApiCall(
     "/auth/sign_up",
     {

@@ -6,7 +6,6 @@ const getComments = async () => {
   const comments = await execApiCall("/posts", null, "GET");
   const commentsBox = document.querySelector("#comments-box");
   commentsBox.className = "w-full grid grid-cols-2 gap-8 mx-8";
-  console.log({ comments });
   comments.data.forEach((comment) => {
     const newComment = document.createElement("div");
     newComment.className =

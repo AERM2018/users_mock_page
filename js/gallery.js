@@ -21,7 +21,6 @@ const onChangeTab = (index) => {
   const carouselItems = document.querySelectorAll(".carousel-item");
   const carouselContainers = Array.from(carouselItems);
   const imagePrefix = getCarouselImages()[`tab${index}`];
-  console.log({ imagePrefix, carouselContainers });
   carouselContainers.forEach((container, i) => {
     container.children[0].setAttribute("src", `${imagePrefix}${i + 1}.jpg`);
   });

@@ -1,15 +1,14 @@
 const baseUrl = "http://localhost:3001/api";
 const execApiCall = async (endpoint, body, method, opts = {}) => {
-  const { includeToken = false } = opts
-  const token = includeToken ? localStorage.getItem('token') : ''
-  console.log({token})
+  const { includeToken = false } = opts;
+  const token = includeToken ? localStorage.getItem("token") : "";
   try {
     const rawResponse = await fetch(`${baseUrl}${endpoint}`, {
       body: body != null ? JSON.stringify(body) : null,
       method,
       headers: {
         "Content-Type": "application/json",
-        "Authorization" : `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
     });
     const response = await rawResponse.json();
