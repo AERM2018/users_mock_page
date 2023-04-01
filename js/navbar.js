@@ -4,9 +4,19 @@ const navbarElementSelected =
 const navbarElementUnSelected =
   "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium";
 
+const pathName = window.location.pathname.split("/").pop();
+
 // Load navbar when document is ready
 document.addEventListener("DOMContentLoaded", () => {
-  const location = window.location.pathname.split("/").pop();
+  if (
+    localStorage.getItem("token") === null ||
+    localStorage.getItem("token") === ""
+  ) {
+    if (!["landing_page.html", "index.html"].includes(pathName)) {
+      window.location.href = "/pages/index.html";
+    }
+    return;
+  }
   const pagePropsForNabvar = [
     {
       title: "Home",
@@ -30,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   pagePropsForNabvar.forEach((page) => {
     const element = document.createElement("a");
     element.className =
-      location == page.baseHref
+      pathName == page.baseHref
         ? navbarElementSelected
         : navbarElementUnSelected;
     element.innerHTML = `${page.title}`;
