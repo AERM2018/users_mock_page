@@ -48,6 +48,6 @@ const signup = async () => {
   );
   if (resp != null) {
     window.localStorage.setItem("token", resp.data.token);
-    window.location.href = "/pages/home.html";
+    window.location.href = "/pages/landing_page.html";
   }
 };

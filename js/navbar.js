@@ -8,15 +8,15 @@ const pathName = window.location.pathname.split("/").pop();
 
 // Load navbar when document is ready
 document.addEventListener("DOMContentLoaded", () => {
-  if (
-    localStorage.getItem("token") === null ||
-    localStorage.getItem("token") === ""
-  ) {
-    if (!["landing_page.html", "index.html"].includes(pathName)) {
-      window.location.href = "/pages/index.html";
-    }
-    return;
-  }
+  // if (
+  //   localStorage.getItem("token") === null ||
+  //   localStorage.getItem("token") === ""
+  // ) {
+  //   if (!["landing_page.html", "index.html"].includes(pathName)) {
+  //     window.location.href = "/pages/index.html";
+  //   }
+  //   return;
+  // }
   const pagePropsForNabvar = [
     {
       title: "Home",
